@@ -1,0 +1,29 @@
+<%= render_aria_labels(@aria_labels) %>
+<div class="ucb-head">
+    <script type="text/javascript" src="https://cdn.colorado.edu/static/brand-assets/live/js/brand-bar.js" id="ucb-brand-bar-embed" data-color="white"></script>
+</div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark topbar" role="banner">
+
+    <header class="ucb black margin-bottom" role="banner">
+        <div class="contain">
+            <a href="/">GeoLibrary</a>
+            <div class="affiliation">
+                <a href="https://www.colorado.edu/libraries/">University Libraries</a>
+            </div>
+        </div>
+
+    </header>
+    <div class="collapse navbar-collapse justify-content-md-end" id="user-util-collapse">
+        <%= render 'shared/user_util_links' %>
+    </div>
+
+</nav>
+<div class='geobl-homepage-masthead jumbotron'>
+    <div class='row justify-content-md-center'>
+        <div class='col-md-6 col-sm-12'>
+            <div class='navbar-search'>
+                <%= render_search_bar %>
+            </div>
+        </div>
+    </div>
+</div>
