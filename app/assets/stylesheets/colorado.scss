@@ -1,0 +1,102 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+// Wrap text on blacklight search results
+.text-span > a {
+  white-space: pre-wrap; /* CSS3 */    
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */    
+  white-space: -o-pre-wrap; /* Opera 7 */    
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+//Rounded corners on leaflet 
+.leaflet-container{
+  border-radius: 15px;
+  border: 1px solid #565A5C;
+  padding: 1px;
+}
+
+//minimize jumbotron
+.jumbotron {
+  padding:15px;
+  background-color: #EEEEEE; // CU Boulder light sivler color
+}
+
+// CU Boulder Black
+.bg-dark {
+  background-color: black !important;
+}
+
+.search-query-form {
+  flex: unset !important; 
+  max-width: unset !important; 
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 130px;
+  line-height: 20px; /* Vertically center the text there */
+  background-color: black;
+  padding-top:15px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+body {
+  padding-bottom: 150px !important;
+}
+
+.footer > .container {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+#table-container {
+  margin-top: 10px;
+}
+.ucb-footer a.ucb-home-link {
+  margin-top: 5px !important;
+}
+.ucb-footer > p {
+ margin: 0px !important;
+ padding: 0px !important;
+ color:white !important;
+}
+.ucb-footer {
+  float: right;
+}
+.ucb-home-link {
+  color: #CFB87C !important;
+}
+.ucb-footer-links > a {
+  color: #CFB87C !important;
+}
+.btn-primary {
+  color:black !important;
+}
+.btn-default {
+  color:black !important;
+}
+
+.ucb-footer-be-boulder {
+  margin-bottom: 10px;
+}
+.ucb-head {
+  display:block;
+  padding:5px;
+}
+.navbar-dark {
+  padding-top:0px;
+  padding-bottom:0px;
+}
