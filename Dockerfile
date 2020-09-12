@@ -16,19 +16,13 @@ RUN apk update \
     $RUBY_PACKAGES
 
 
-RUN echo "gem: --no-document"  > /root/.gemrc 
+RUN echo "gem: --no-document"  > /root/.gemrc
 #RUN mkdir $BUNDLE_APP_CONFIG
 RUN gem update --system
-#RUN gem install bundler
-#RUN bundler update --bundler
-# RUN gem install bundle 
-# RUN bundle install --without development test --path=$BUNDLE_APP_CONFIG
 COPY . .
-#COPY Gemfile* package.json yarn.lock  Rakefile ./
-# install rubygem
-#COPY Gemfile Gemfile.lock $RAILS_ROOT/
+ENV BUNDLER_WITHOUT development test assets
 RUN bundle config --global frozen 1 \
-    && bundle install --without development:test:assets -j4 --retry 3 --path=vendor/bundle \
+    && bundle install -j4 --retry 3 --path=vendor/bundle \
     # Remove unneeded files (cached *.gem, *.o, *.c)
     && rm -rf vendor/bundle/ruby/2.6.0/cache/*.gem \
     && find vendor/bundle/ruby/2.6.0/gems/ -name "*.c" -delete \
@@ -37,15 +31,15 @@ RUN bundle config --global frozen 1 \
 
 RUN yarn install --check-files
 # COPY . .
-ENV SECRET_KEY_BASE=jkljienifjldf93sf832lknfdFHKdssoerrrrrrsshit
+ENV SECRET_KEY_BASE=temp-secret-key
 #RUN bin/rails webpacker:compile
 RUN bin/rails assets:precompile
-# COPY Gemfile* package.json yarn.lock ./
-# RUN bundle config --global frozen 1 \
-#     && bundle install --path=vendor/bundle
-# RUN yarn install
-# Remove folders not needed in resulting image
-RUN rm -rf node_modules tmp/cache app/assets vendor/assets
+
+# tmp/cache/downloads tmp/pids tmp/sockets tmp/restart.txt
+#Clean up
+RUN rm -rf node_modules   tmp/solr-* app/assets vendor/assets
+RUN mkdir -p /app/tmp/cache/downloads
+RUN rm -rf "$RAILS_ROOT/log"
 
 # ############### Build step done ###############
 FROM ruby:2.6.3-alpine
@@ -62,12 +56,9 @@ RUN apk update \
 #Update bundler
 RUN gem update --system
 #set temporary production Key Base
-ENV SECRET_KEY_BASE=jkljienifjldf93sf832lknfdFHKdssoet
+ENV SECRET_KEY_BASE=temp-secret-key
 # push logs to stdout for docker :-)
 ENV RAILS_LOG_TO_STDOUT=true
-
-RUN mkdir -p /app/tmp/cache/downloads
-RUN rm -rf "$RAILS_ROOT/log"
 
 COPY --from=build-env $RAILS_ROOT $RAILS_ROOT
 ENV PATH="$RAILS_ROOT/bin:${PATH}"
