@@ -9,3 +9,11 @@
     </div>
 
 </footer>
+<script>
+    htmlval = $('.alert').text()
+    htmlval = '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + htmlval.replace(' x ', ' ')
+    htmlval = $.parseHTML(htmlval);
+    $('.alert').empty();
+    $('.alert').append(htmlval);
+    console.log("test happens!")
+</script>
