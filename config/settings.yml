@@ -44,6 +44,9 @@ FIELDS:
   :TEMPORAL: 'dct_temporal_sm'
   :TITLE: 'dc_title_s'
   :SOURCE: 'dc_source_sm'
+  :DATE_ISSUED: 'dct_issued_s'
+  :DATE_CREATED: 'dct_created_s'
+  :RIGHTS_STATEMENT: 'cub_rights_metadata_s'
 
 # Institution deployed at
 INSTITUTION: 'University of Colorado Boulder'
