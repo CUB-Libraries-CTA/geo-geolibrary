@@ -10,10 +10,17 @@
 
 </footer>
 <script>
-    htmlval = $('.alert').text()
-    htmlval = '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + htmlval.replace(' x ', ' ')
+    htmlval = '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + $('.alert').text().slice(0, $('.alert').text().lastIndexOf('</a>') + 4);
     htmlval = $.parseHTML(htmlval);
     $('.alert').empty();
     $('.alert').append(htmlval);
-    console.log("test happens!")
+    //truncated-abstract
+    htmlval = $('.truncate-abstract').text();
+    htmlval = $.parseHTML(htmlval);
+    $('.truncate-abstract').empty();
+    $('.truncate-abstract').append(htmlval);
+    // remove login and bookmarks links
+    $('.navbar-nav li:nth-last-child(1)').hide()
+    $('.navbar-nav li:nth-last-child(2)').hide()
+    $('.navbar-nav li:nth-last-child(3)').hide()
 </script>
