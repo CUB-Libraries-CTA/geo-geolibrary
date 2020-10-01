@@ -94,9 +94,19 @@ body {
 }
 .ucb-head {
   display:block;
-  padding:5px;
+  padding: 5px 10px;
 }
 .navbar-dark {
+
   padding-top:0px;
   padding-bottom:0px;
 }
+.bg-success, .facet-limit-active .card-header {
+  background-color: #dff0d8 !important;
+}
+.border-success, .facet-limit-active {
+  border-color: #dff0d8 !important;
+}
+// .bg-success {
+//   background-color: #dff0d8;
+// } 

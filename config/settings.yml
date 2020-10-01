@@ -44,9 +44,13 @@ FIELDS:
   :TEMPORAL: 'dct_temporal_sm'
   :TITLE: 'dc_title_s'
   :SOURCE: 'dc_source_sm'
+  :DATE_ISSUED: 'dct_issued_s'
+  :DATE_CREATED: 'dct_created_s'
+  :RIGHTS_STATEMENT: 'cub_rights_metadata_s'
+  :IDENTIFIER: 'dc_identifier_s'
 
 # Institution deployed at
-INSTITUTION: 'Stanford'
+INSTITUTION: 'University of Colorado Boulder'
 
 # Metadata shown in tool panel
 METADATA_SHOWN:

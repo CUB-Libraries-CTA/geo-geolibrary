@@ -22,7 +22,7 @@ junk
 /yarn-error.log
 
 .byebug_history
-
+/vendor/assets
 /public/packs
 /public/packs-test
 /node_modules

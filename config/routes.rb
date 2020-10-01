@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
     concerns :searchable
   end
+  
+  #About Page
+  get 'about' => 'catalog#about'
 
   devise_for :users
   concern :exportable, Blacklight::Routes::Exportable.new
