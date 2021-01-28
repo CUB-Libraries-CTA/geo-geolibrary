@@ -54,7 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #'< 7.8'
 gem 'blacklight', '~> 7.0', '< 7.8'
-gem 'geoblacklight', '~> 2.0'
+gem 'geoblacklight', '~> 2.1'
 gem 'webpacker'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
