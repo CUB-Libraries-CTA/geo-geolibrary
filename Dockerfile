@@ -22,7 +22,8 @@ RUN gem update --system
 COPY . .
 ENV BUNDLER_WITHOUT development test assets
 RUN bundle config --global frozen 1 \
-    && bundle install -j4 --retry 3 --path=vendor/bundle \
+    && bundle config set --local path 'vendor/bundle' \
+    && bundle install -j4 --retry 3 \
     # Remove unneeded files (cached *.gem, *.o, *.c)
     && rm -rf vendor/bundle/ruby/2.6.0/cache/*.gem \
     && find vendor/bundle/ruby/2.6.0/gems/ -name "*.c" -delete \
