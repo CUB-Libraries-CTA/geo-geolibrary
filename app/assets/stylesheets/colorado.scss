@@ -4,12 +4,12 @@ html, body {
 }
 
 // Wrap text on blacklight search results
-.text-span > a {
-  white-space: pre-wrap; /* CSS3 */    
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-  white-space: -pre-wrap; /* Opera 4-6 */    
-  white-space: -o-pre-wrap; /* Opera 7 */    
-  word-wrap: break-word; /* Internet Explorer 5.5+ */
+.index_title a {
+  white-space: break-spaces !important; /* CSS3 */    
+  white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+  white-space: -pre-wrap !important; /* Opera 4-6 */    
+  white-space: -o-pre-wrap !important; /* Opera 7 */    
+  word-wrap: break-word !important; /* Internet Explorer 5.5+ */
 }
 
 //Rounded corners on leaflet 
