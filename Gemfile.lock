@@ -78,7 +78,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.10)
     config (3.0.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
@@ -168,8 +168,8 @@ GEM
       rails (~> 5.0)
       webpacker
     geoblacklight-icons (1.4.0)
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     handlebars_assets (0.23.8)
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
@@ -184,7 +184,7 @@ GEM
     http-form_data (2.3.0)
     http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
-    i18n (1.8.9)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
@@ -226,7 +226,7 @@ GEM
       rake
     mini_mime (1.0.2)
     mini_portile2 (2.5.1)
-    minitest (5.14.4)
+    minitest (5.17.0)
     multipart-post (2.1.1)
     net-http-persistent (2.9.4)
     nio4r (2.5.7)
@@ -340,7 +340,7 @@ GEM
       actionpack (>= 3.1)
       jquery-rails
       railties (>= 3.1)
-    tzinfo (1.2.9)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
