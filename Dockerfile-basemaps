@@ -1,0 +1,20 @@
+# Dockerfile-basemaps
+#
+# Temporary overlay image for GeoLibrary.
+#
+# This Dockerfile does not perfom a full application build.  It uses the
+# the existing GeoLibrary release image as a base and overlays two small file 
+# changes to address an immediate operational need. 
+#
+# Changes:
+# 1. Replace the CARTO Positron basemap with OpenStreetMap Standard.
+# 2. Remove the legacy survey link from the application header.
+
+# Use last released image, 2.0.12, for test and production
+FROM culibraries/geolibrary:2.0.12
+
+# Update GeoBlacklight basemap configuration to use OpenStreetMap Standard 
+COPY app/controllers/catalog_controller.rb /app/app/controllers/catalog_controller.rb
+
+# Remove the obsolete survey link from the top navigation bar
+COPY app/views/shared/_header_navbar.html.erb /app/app/views/shared/_header_navbar.html.erb
