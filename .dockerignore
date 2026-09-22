@@ -1,0 +1,33 @@
+# BUILD ARTIFACTS
+public/assets
+public/packs
+
+# ENVIRONMENT FILES
+.env
+.env.*
+
+# Development files
+.DS_Store
+.DS_Store?
+.git
+.gitattributes
+.gitignore
+.gitmodules
+.cache
+.Trashes
+Thumbs.db
+**/.vscode
+**/.idea
+**/*.swp
+
+# Docker files
+docker-compose*.yml
+Dockerfile*
+
+# Documentation
+README.md
+CONTRIBUTING.md
+docs
+
+# Tests
+spec/
