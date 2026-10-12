@@ -1,19 +1,24 @@
 source 'https://rubygems.org'
-
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
+# Declares Ruby version so Bundler pre-screens incompatible gems early
+ruby '2.6.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4.5'
+#gem 'rails', '~> 5.2.4.5'
+gem 'rails', '~> 5.2.8.1'
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.3.6"
+gem 'sqlite3', '~> 1.3.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+
+# sassc-rails replaces sass-rails 5.x (Ruby Sass was retired March 2019).
+# Bootstrap 4.x enforces a Sass engine check that sass-rails 5.x fails.
+gem 'sassc-rails', '~> 2.1'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -39,6 +44,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'solr_wrapper', '>= 0.3'
 end
 
 group :development do
@@ -52,17 +58,33 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-#'< 7.8'
 gem 'blacklight', '~> 7.0', '< 7.8'
 gem 'geoblacklight', '~> 2.1'
-gem 'webpacker'
-group :development, :test do
-  gem 'solr_wrapper', '>= 0.3'
-end
+gem 'webpacker', '~> 5.0'
+gem 'sprockets', '~> 3.7'
 
 gem 'rsolr', '>= 1.0'
 gem 'bootstrap', '~> 4.0'
 gem 'twitter-typeahead-rails', '0.11.1.pre.corejavascript'
 gem 'jquery-rails'
-gem 'devise'
-gem 'devise-guests', '~> 0.6'
+
+# Do not require login/bookmarks/search history
+#gem 'devise'
+#gem 'devise-guests', '~> 0.6'
+
+# 2026 pins
+# Pin config to 3.x — config 4.0+ returns Config::Options objects instead
+# of plain values, breaking GeoBlacklight 2.4.0 facet field resolution
+# in Blacklight's facet_partial_name helper.
+gem 'config', '~> 3.0'
+
+# Pin faraday to 1.3.x — matches original lockfile; used by geo_combine
+# and faraday_middleware which were tested against this version.
+gem 'faraday', '~> 1.3.0'
+
+# Pin multipart-post to 2.1.1 for Faraday 1.x compatibility;
+# 2.2+ produces deprecated constant warnings 
+gem 'multipart-post', '2.1.1'
+
+# Pin geo_combine to 0.5.x — matches original lockfile version.
+gem 'geo_combine', '~> 0.5.0'

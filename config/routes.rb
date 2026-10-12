@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   #About Page
   get 'about' => 'catalog#about'
 
-  devise_for :users
+  #devise_for :users
   concern :exportable, Blacklight::Routes::Exportable.new
 
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do

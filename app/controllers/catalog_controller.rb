@@ -236,8 +236,10 @@ class CatalogController < ApplicationController
     config.spell_max = 5
 
     # Nav actions from Blacklight
-    config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
-    config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
+    # CUBL - We don't need to keep track of users on public website and so no need 
+    #        for bookmarks or search history.
+    #config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark', if: :render_bookmarks_control?)
+    #config.add_nav_action(:search_history, partial: 'blacklight/nav/search_history')
 
     # Tools from Blacklight
     config.add_results_collection_tool(:sort_widget)

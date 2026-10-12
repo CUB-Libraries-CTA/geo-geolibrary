@@ -1,6 +1,7 @@
 # BUILD ARTIFACTS
 public/assets
 public/packs
+node_modules
 
 # ENVIRONMENT FILES
 .env

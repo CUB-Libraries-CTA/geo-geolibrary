@@ -1,6 +1,9 @@
 {
   "name": "internal",
   "private": true,
+  "resolutions": {
+    "node-sass": "6.0.1"
+  },
   "dependencies": {
     "@rails/webpacker": "https://github.com/rails/webpacker.git"
   },
