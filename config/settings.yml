@@ -91,6 +91,19 @@ OPACITY_CONTROL: &opacity_control
     - 'Opacity'
 
 LEAFLET:
+  # CARTO URLs are configured at application boot, not asset compilation.
+  # Select positron, positronLite, or darkMatter in config.basemap_provider.
+  # Without a key, retain GeoBlacklight's shipped provider URLs.
+<% if ENV['CARTO_API_KEY'] && !ENV['CARTO_API_KEY'].strip.empty? %>
+<% require 'cgi' %>
+  BASEMAPS:
+    positron:
+      url: 'https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png?key=<%= CGI.escape(ENV.fetch('CARTO_API_KEY')) %>'
+    positronLite:
+      url: 'https://basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=<%= CGI.escape(ENV.fetch('CARTO_API_KEY')) %>'
+    darkMatter:
+      url: 'https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png?key=<%= CGI.escape(ENV.fetch('CARTO_API_KEY')) %>'
+<% end %>
   MAP:
   LAYERS:
     DETECT_RETINA: true
