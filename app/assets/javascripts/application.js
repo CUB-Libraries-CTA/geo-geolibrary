@@ -21,4 +21,5 @@
 //= require bootstrap
 //= require blacklight/blacklight
 
+//= require geoblacklight
 //= require_tree .
