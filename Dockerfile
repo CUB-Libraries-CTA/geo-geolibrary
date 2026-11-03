@@ -45,8 +45,10 @@ RUN rm -rf "$RAILS_ROOT/log"
 # ############### Build step done ###############
 FROM ruby:2.6.10-alpine3.15
 ARG RAILS_ROOT=/app
-ARG PACKAGES="tzdata sqlite-dev nodejs bash shared-mime-info"
+# JavaScript compilation runs in build-env; the runtime serves compiled assets.
+ARG PACKAGES="tzdata sqlite-dev bash shared-mime-info"
 ENV RAILS_ENV=production
+ENV EXECJS_RUNTIME=Disabled
 ENV BUNDLE_APP_CONFIG="$RAILS_ROOT/.bundle"
 ENV BUNDLE_WITHOUT="development:test:assets"
 WORKDIR $RAILS_ROOT
@@ -63,6 +65,11 @@ ENV RAILS_LOG_TO_STDOUT=true
 
 COPY --from=build-env $RAILS_ROOT $RAILS_ROOT
 ENV PATH="$RAILS_ROOT/bin:${PATH}"
+# Fail the build if a dependency needs server-side JavaScript during boot.
+RUN ! command -v node \
+    && ! command -v nodejs \
+    && SECRET_KEY_BASE=temp-build-check bundle exec rails runner \
+       'abort "Unexpected ExecJS runtime" unless ExecJS.runtime.name == "Disabled"; puts "Production boot succeeded without Node.js"'
 EXPOSE 3000
 
 # Copy and set entrypoint script
