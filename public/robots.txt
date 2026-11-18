@@ -1,1 +1,44 @@
-# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+# GeoLibrary: allow the home page, About, assets, and catalog record pages.
+User-agent: *
+
+# Search results (filters, sorting, pagination, and map searches).
+Disallow: /?
+Disallow: /catalog?
+Disallow: /catalog.html?
+Disallow: /catalog.atom
+Disallow: /catalog.rss
+Disallow: /catalog.json
+Disallow: /catalog/facet/
+Disallow: /catalog/opensearch
+Disallow: /catalog/range_limit
+Disallow: /suggest
+
+# Record utilities and machine-readable exports.
+Disallow: /catalog/email
+Disallow: /catalog/sms
+Disallow: /catalog/*/email
+Disallow: /catalog/*/sms
+Disallow: /catalog/*/relations
+Disallow: /catalog/*/web_services
+Disallow: /catalog/*/raw
+Disallow: /catalog/*.json
+Disallow: /catalog/*.xml
+Disallow: /catalog/*.rdf
+Disallow: /catalog/*.ttl
+Disallow: /catalog/*.nt
+Disallow: /catalog/*.jsonld
+
+# Blacklight user tools and GeoBlacklight service/download endpoints.
+Disallow: /bookmarks
+Disallow: /saved_searches
+Disallow: /search_history
+Disallow: /wms/
+Disallow: /download
+Disallow: /geoblacklight/
+
+# Static error pages.
+Disallow: /404.html
+Disallow: /422.html
+Disallow: /500.html
+
+Sitemap: https://geo.colorado.edu/sitemap.xml
