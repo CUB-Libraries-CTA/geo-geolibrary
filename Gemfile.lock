@@ -290,6 +290,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.1.1)
+    sitemap_generator (7.1.1)
+      builder (~> 3.0)
     solr_wrapper (4.3.0)
       faraday (>= 1.0, < 3)
       faraday-follow_redirects
@@ -364,6 +366,7 @@ DEPENDENCIES
   rsolr (>= 1.0)
   sassc-rails (~> 2.1)
   selenium-webdriver
+  sitemap_generator (~> 7.1.1)
   solr_wrapper (>= 0.3)
   spring
   spring-watcher-listen (~> 2.0.0)
